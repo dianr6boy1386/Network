@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+
+{% block title %}{{ profile_user.username }} · Network{% endblock %}
+
+{% block body %}
+    <section class="card profile-card"
+             data-follow-url="{% url 'toggle_follow' profile_user.username %}">
+        <div class="card-body text-center">
+            <h2 class="profile-name">{{ profile_user.username }}</h2>
+            <div class="profile-stats">
+                <div>
+                    <div class="stat-label">Followers</div>
+                    <div class="stat-value" id="followers-count">{{ followers_count }}</div>
+                </div>
+                <div>
+                    <div class="stat-label">Following</div>
+                    <div class="stat-value" id="following-count">{{ following_count }}</div>
+                </div>
+            </div>
+            {% if user.is_authenticated and not is_own_profile %}
+                <button type="button"
+                        class="btn follow-btn {% if is_following %}btn-outline-primary{% else %}btn-primary{% endif %}"
+                        data-following="{{ is_following|yesno:'true,false' }}">{% if is_following %}Unfollow{% else %}Follow{% endif %}</button>
+                <div class="text-danger small mt-2 follow-error" role="alert"></div>
+            {% endif %}
+        </div>
+    </section>
+
+    {% include "network/_post_list.html" with empty_message="This user has not posted yet." %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "network/layout.html" %}
+
+{% block title %}All Posts · Network{% endblock %}
+
+{% block body %}
+    <h2 class="page-title">All Posts</h2>
+
+    {% if user.is_authenticated %}
+        <section class="card new-post">
+            <div class="card-body">
+                <h5 class="card-title">New Post</h5>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.content }}
+                        {% for error in form.content.errors %}
+                            <div class="text-danger small mt-1" role="alert">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+            </div>
+        </section>
+    {% endif %}
+
+    {% include "network/_post_list.html" %}
+{% endblock %}

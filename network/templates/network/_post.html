@@ -1,0 +1,27 @@
+<article class="card post"
+         data-post-id="{{ post.id }}"
+         data-like-url="{% url 'toggle_like' post.id %}"
+         data-edit-url="{% url 'post_detail' post.id %}"
+         data-max-length="{{ max_length }}">
+    <div class="card-body">
+        <div class="post-header">
+            <a class="post-author" href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a>
+            <time class="post-time text-muted" datetime="{{ post.timestamp|date:'c' }}">{{ post.timestamp|date:"N j, Y, g:i a" }}</time>
+        </div>
+
+        <div class="post-content">{{ post.content }}</div>
+
+        <div class="post-footer">
+            {% if user.is_authenticated %}
+                <button type="button"
+                        class="btn btn-sm like-btn {% if post.liked_by_user %}btn-secondary{% else %}btn-outline-secondary{% endif %}"
+                        data-liked="{{ post.liked_by_user|yesno:'true,false' }}">{% if post.liked_by_user %}Unlike{% else %}Like{% endif %}</button>
+            {% endif %}
+            <span class="likes text-muted">likes: <span class="like-count">{{ post.like_count }}</span></span>
+            {% if user.pk == post.author_id %}
+                <button type="button" class="btn btn-link btn-sm edit-btn">Edit</button>
+            {% endif %}
+        </div>
+        <div class="text-danger small post-error" role="alert"></div>
+    </div>
+</article>

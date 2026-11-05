@@ -1,0 +1,9 @@
+<section class="post-list" aria-label="Posts">
+    {% for post in posts %}
+        {% include "network/_post.html" %}
+    {% empty %}
+        <p class="text-muted empty-state">{{ empty_message|default:"No posts yet." }}</p>
+    {% endfor %}
+</section>
+
+{% include "network/_pagination.html" %}

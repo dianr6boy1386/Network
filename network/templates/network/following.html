@@ -1,0 +1,9 @@
+{% extends "network/layout.html" %}
+
+{% block title %}Following · Network{% endblock %}
+
+{% block body %}
+    <h2 class="page-title">Following</h2>
+
+    {% include "network/_post_list.html" with empty_message="Posts from people you follow will show up here. Visit a profile and press Follow to get started." %}
+{% endblock %}

@@ -1,0 +1,104 @@
+body {
+    background-color: #f5f6f8;
+}
+
+.body {
+    max-width: 720px;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.page-title {
+    margin-bottom: 1rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+.new-post textarea {
+    resize: vertical;
+}
+
+/* Posts */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.post-author {
+    font-weight: 600;
+}
+
+.post-time {
+    font-size: 0.8rem;
+}
+
+.post-content {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    margin-bottom: 0.75rem;
+}
+
+.post-editor {
+    margin-bottom: 0.75rem;
+}
+
+.post-editor textarea {
+    margin-bottom: 0.5rem;
+    resize: vertical;
+}
+
+.post-editor .btn {
+    margin-right: 0.25rem;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+}
+
+.post-footer .likes {
+    margin-left: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.post-footer .edit-btn {
+    margin-left: auto;
+}
+
+.post-error:empty,
+.follow-error:empty {
+    display: none;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Profile */
+.profile-name {
+    margin-bottom: 1rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
