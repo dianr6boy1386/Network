@@ -15,7 +15,7 @@ then hardened with input validation, authorization checks, an automated test sui
 
 ## Video demo
 
-[Watch the project demo on YouTube](https://youtu.be/)
+[Watch the project demo on YouTube]([https://youtu.be/](https://youtu.be/hN4cKtrAO54))
 
 
 ## Features
